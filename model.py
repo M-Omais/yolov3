@@ -71,7 +71,7 @@ class ScalePrediction(nn.Module):
     def __init__(self, in_channels, num_classes):
         super(ScalePrediction, self).__init__()
         self.pred = nn.Sequential(
-            CNNBlock(in_channels, 2*in_channels, kernel_size=1, padding=1),
+             CNNBlock(in_channels, 2*in_channels, kernel_size=3, padding=1),
             CNNBlock(2*in_channels, (num_classes + 5) * 3, bn_act=False, kernel_size=1),
         )
         self.num_classes = num_classes
@@ -84,7 +84,7 @@ class ScalePrediction(nn.Module):
                 .permute(0, 1, 3, 4, 2)
         )
 class YOLOv3(nn.Module):
-    def __init__(self, in_channels=1, num_classes=2):
+    def __init__(self, in_channels=3, num_classes=2):
         super(YOLOv3, self).__init__()
         self.num_classes = num_classes
         self.in_channels = in_channels

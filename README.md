@@ -121,7 +121,7 @@ Clone the repository and install the required dependencies:
 ```bash
 git clone https://github.com/yourusername/yolov3.git
 cd yolov3
-pip install -r requirements.txt
+pip install -r req.txt
 ```
 
 ## Usage

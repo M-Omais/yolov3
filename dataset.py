@@ -46,7 +46,7 @@ class YOLODataset(Dataset):
         label_path = os.path.join(self.label_dir, self.annotations.iloc[index, 1])
         bboxes = np.roll(np.loadtxt(fname=label_path, delimiter=" ", ndmin=2), 4, axis=1).tolist()
         img_path = os.path.join(self.img_dir, self.annotations.iloc[index, 0])
-        image = np.array(Image.open(img_path).convert("L"))
+        image = np.array(Image.open(img_path).convert("RGB"))
 
         # apply augmentations with albumentations 
         if self.transform:
